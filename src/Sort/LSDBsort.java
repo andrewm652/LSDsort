@@ -31,6 +31,8 @@ public class LSDBsort {
 
     private static int digitByte(int target, int index) {
         byte b = (byte)(target >>> index);
+        if (index == 24)
+            return b + 128;
         if (b < 0) {
             return b + 256;
         }

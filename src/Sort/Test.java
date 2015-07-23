@@ -17,7 +17,7 @@ public class Test {
             Random random = new Random();
             int[] array = new int[ARRAY_SIZE];
             for (int i = 0; i < ARRAY_SIZE; i++) {
-                array[i] = random.nextInt(Integer.MAX_VALUE);
+                array[i] = random.nextInt();
             }
 
             int[] sortArray1 = Arrays.copyOf(array, array.length);
@@ -36,6 +36,7 @@ public class Test {
             long resultRBS = finishRBS - stargRBS;
             sumRBS += resultRBS;
             System.out.println("elapsed time for radix byte sort = " + resultRBS);
+            System.out.println(Utils.isSorted(sortArray2));
         }
         double resultQSda = (double)sumQS / NUMBER_OF_TESTS;
         double resultRBSda = (double)sumRBS / NUMBER_OF_TESTS;
@@ -46,12 +47,12 @@ public class Test {
         System.out.println(result + " times better than Arrays.sort");
 
 
-        /*
-        Random random = new Random();
+
+        /*Random random = new Random();
 
         int[] array = new int[ARRAY_SIZE];
         for (int i = 0; i < ARRAY_SIZE; i++) {
-            array[i] = random.nextInt(Integer.MAX_VALUE);
+            array[i] = random.nextInt();
         }
 
         int[] sortArray1 = Arrays.copyOf(array, array.length);
