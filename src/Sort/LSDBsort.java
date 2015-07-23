@@ -6,22 +6,27 @@ public class LSDBsort {
         int[] c = new int[256];
         int[] b = new int[a.length];
         for (int i = 0; i < 32; i+=8) {
+
             for (int j = 0; j < c.length; j++) {
                 c[j] = 0;
             }
+
             for (int j = 0; j < a.length; j++) {
                 int d = digitByte(a[j], i);
                 c[d]++;
             }
+
             int count = 0;
             for (int j = 0; j < c.length; j++) {
                 int tmp = c[j];
                 c[j] = count;
                 count += tmp;
             }
+
             for (int j = 0; j < b.length; j++) {
                 b[j] = 0;
             }
+
             for (int j = 0; j < a.length; j++) {
                 int d = digitByte(a[j], i);
                 b[c[d]] = a[j];
