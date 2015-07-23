@@ -23,17 +23,17 @@ public class Test {
             int[] sortArray1 = Arrays.copyOf(array, array.length);
             int[] sortArray2 = Arrays.copyOf(array, array.length);
 
-            long stargQS = System.currentTimeMillis();
+            long startQS = System.nanoTime();
             Arrays.sort(sortArray1);
-            long finishQS = System.currentTimeMillis();
-            long resultQS = finishQS - stargQS;
-            sumQS += (finishQS - stargQS);
+            long finishQS = System.nanoTime();
+            long resultQS = finishQS - startQS;
+            sumQS += (finishQS - startQS);
             System.out.println("elapsed time for quick sort = " + resultQS);
 
-            long stargRBS = System.currentTimeMillis();
+            long startRBS = System.nanoTime();
             sortArray2 = LSDBsort.radixByteSort(sortArray2);
-            long finishRBS = System.currentTimeMillis();
-            long resultRBS = finishRBS - stargRBS;
+            long finishRBS = System.nanoTime();
+            long resultRBS = finishRBS - startRBS;
             sumRBS += resultRBS;
             System.out.println("elapsed time for radix byte sort = " + resultRBS);
             System.out.println(Utils.isSorted(sortArray2));

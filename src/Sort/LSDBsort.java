@@ -4,6 +4,7 @@ public class LSDBsort {
 
     public static int[] radixByteSort(int[] a) {
         int[] c = new int[256];
+        int[] b = new int[a.length];
         for (int i = 0; i < 32; i+=8) {
             for (int j = 0; j < c.length; j++) {
                 c[j] = 0;
@@ -18,7 +19,9 @@ public class LSDBsort {
                 c[j] = count;
                 count += tmp;
             }
-            int[] b = new int[a.length];
+            for (int j = 0; j < b.length; j++) {
+                b[j] = 0;
+            }
             for (int j = 0; j < a.length; j++) {
                 int d = digitByte(a[j], i);
                 b[c[d]] = a[j];
